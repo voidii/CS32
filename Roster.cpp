@@ -120,7 +120,7 @@ void Roster::sortByPerm() {
 
 int Roster::indexOfMaxPermAmongFirstKStudents(int k) const {
 	int maxIndex = 0;
-	for (auto i = 0; i < k + 1; i++)
+	for (auto i = 0; i < k; i++)
 	{
 		if(this->students[i]->getPerm() > this->students[maxIndex]->getPerm())
 		{
@@ -137,8 +137,8 @@ void Roster::sortByPermHelper(int k) {
 
   int im = indexOfMaxPermAmongFirstKStudents(k);
 	  Student temp = *(this->students[im]);
-          *(this->students[im]) = *(this->students[k]);
-          *(this->students[k]) = temp;
+          *(this->students[im]) = *(this->students[k-1]);
+          *(this->students[k-1]) = temp;
 
 
   // now swap the pointers between index im and index k-1
