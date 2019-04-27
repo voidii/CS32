@@ -98,9 +98,9 @@ std::string Roster::toString() const {
 }
 
 void Roster::sortByPerm() {
-  	for (auto i = this->getNumStudents()-1; i > 0; i--)
+  	for (auto i = this->getNumStudents(); i > 0; i--)
 	{
-		int max = 0;
+		long max = 0;
 		int maxIndex = 0;
 		for (auto j = 0; j < i; j++)
 		{
@@ -110,8 +110,8 @@ void Roster::sortByPerm() {
 				maxIndex = j;
 			}
 		}
-		Student temp = *(this->students[i]);
-		*(this->students[i]) = *(this->students[maxIndex]);
+		Student temp = *(this->students[i-1]);
+		*(this->students[i-1]) = *(this->students[maxIndex]);
 		*(this->students[maxIndex]) = temp;
 	}
 	// SELECTION SORT
