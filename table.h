@@ -24,8 +24,9 @@ class Table
 		std::ostream& operator<< (std::ostream& out, const Table& t);
 
 	private:
-		std::vector<Entry>* head;
-	        int HashFunc(int key);	
+		int size_of_table;
+		std::vector<Entry>* data_of_table;
+	        int HashFuncs(int key);	
 };
 
 
